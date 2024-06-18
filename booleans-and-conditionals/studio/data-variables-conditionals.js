@@ -37,7 +37,7 @@ if (totalMassKg <= maximumMassLimit && preparedForLiftOff) {
 if (fuelTempCelsius > minimumFuelTemp && fuelTempCelsius < maximumFuelTemp && preparedForLiftOff) {
     preparedForLiftOff = true;
 } else {
-    preparedForLiftOff = flase;
+    preparedForLiftOff = false;
 }
 // add logic below to verify the fuel level is at 100%
 if (fuelLevel === "100%") {
