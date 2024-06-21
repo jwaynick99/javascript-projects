@@ -10,8 +10,10 @@ function reverseCommas() {
 	//TODO: 1. create and instantiate your variables.
 	let check;
 	let output;
+	
 	//TODO: 2. write the code required for this step
-
+	let array1 = strings[0].split(",").reverse().join()
+	output = array1
 	//NOTE: For the code to run properly, you must return your output.  this needs to be the final line of code within the function's { }.
 	return output;
 }
@@ -21,7 +23,8 @@ function semiDash() {
 	let check;
 	let output;
 //TODO: write the code required for this step
-
+	let array2 = strings[1].split(";").sort().join("-")
+	output = array2
   
 	return output;
 }
@@ -31,7 +34,8 @@ function reverseSpaces() {
 	let check;
 	let output;
   //TODO: write the code required for this step
-
+	let array3 = strings[2].split(" ").sort().reverse().join(" ")
+	output = array3
 	return output;
 }
 
@@ -40,7 +44,8 @@ function commaSpace() {
 	let check;
 	let output;
 	//TODO: write the code required for this step
-  
+	let array4 = strings[3].split(", ").reverse().join(",")
+	output = array4
 	return output;
 }
 
