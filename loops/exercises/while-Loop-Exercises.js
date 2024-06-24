@@ -29,9 +29,10 @@ while (numOfAstronauts < 1 || numOfAstronauts > 7) {
   
   
 //c. Use a final loop to monitor the fuel status and the altitude of the shuttle. Each iteration, decrease the fuel level by 100 units for each astronaut aboard. Also, increase the altitude by 50 kilometers.
-while (startingFuel > 0) {
+while (startingFuel > 100 * numOfAstronauts) {
   startingFuel -= 100 * numOfAstronauts;
   shuttleAltitude += 50;
+  console.log(startingFuel)
 }
 
 
