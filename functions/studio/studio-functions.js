@@ -43,7 +43,7 @@ function reverseArray(array) {
         for (let j = 0; j < 1; j++){
              reversed = reverseCharacters(array[i]);
         }
-        newArray.push(reversed);
+        newArray.unshift(reversed);
     }
     return newArray;
 }
