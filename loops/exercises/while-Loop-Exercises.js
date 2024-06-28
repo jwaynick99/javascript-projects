@@ -32,7 +32,6 @@ while (numOfAstronauts < 1 || numOfAstronauts > 7) {
 while (startingFuel > 100 * numOfAstronauts) {
   startingFuel -= 100 * numOfAstronauts;
   shuttleAltitude += 50;
-  console.log(startingFuel)
 }
 
 
