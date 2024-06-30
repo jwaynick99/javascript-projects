@@ -18,14 +18,14 @@ function holdStatus(arr){
   }
 }
 
-let fuelLevel = 200000;
+let fuelLevel = 100000;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
 
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
 
 /* Steal some fuel from the shuttle:
- * /
+ */
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
@@ -34,9 +34,26 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //c). Once you figure out how much fuel to pump out, return that value.
 
 //d). Decide where to best place your function call to gather our new fuel.
+ 
+let notStealFuel = function(shipFuelLevel) {
+  let stolenFuel = 0;
+  if (checkFuel(shipFuelLevel) === "green") {
+    stolenFuel = shipFuelLevel - 10001
+    fuelLevel -= stolenFuel
+    return stolenFuel;
+  } else if (checkFuel(shipFuelLevel) === "yellow") {
+    stolenFuel = shipFuelLevel - 50001
+    fuelLevel -= stolenFuel
+    return stolenFuel;
+  } else {
+    return shipFuelLevel;
+  }
+}
+
+
 
 /* Next, liberate some of that glorious cargo.
- * /
+ */
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
 
@@ -45,13 +62,32 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //c). The cargo hold has better security than the fuel tanks. It counts how many things are in storage. You need to replace what you steal with something worthless. The count MUST stay the same, or you’ll get caught and thrown into the LaunchCode brig.
 
 //d). Don’t get hasty, matey! Remember to test your function.
+let borrowTwoItems = function(array) {
+  let borrowedItems = []
+  let replacementItems = ["Faux Gold", "Thrift Store Clothes"]
+  for (let i = 0; i < 2; i++){
+    borrowedItems.unshift(array.shift())
+  }
+  for (let i = 0; i < 2; i++){
+    array.unshift(replacementItems[i])
+  }
+  return borrowedItems;
+}
+
 
 /* Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
- * /
+ */
  
 //a). Define a function called irs that can take fuelLevel and cargoHold as arguments.
 	
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+function irs(shipFuelLevel, array) {
+  let items = borrowTwoItems(array);
+  let stolenFuel = notStealFuel(fuelLevel);
 
+  return `Raided ${stolenFuel} kg of fuel from the tanks, and stole ${items[0]} and ${items[1]} from the cargo hold.`;
+}
+console.log(irs(fuelLevel, cargoHold))
+console.log(fuelLevel, cargoHold)
