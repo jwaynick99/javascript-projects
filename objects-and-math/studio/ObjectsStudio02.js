@@ -7,12 +7,19 @@ function orbitCircumference(radius) {
 function missionDuration(numOrbits, orbitRadius = 2000, orbitSpeed = 28000) {
   return Math.round((numOrbits * orbitCircumference(orbitRadius)) / orbitSpeed * 100) / 100
 }
-console.log(missionDuration(12))
-// Copy/paste your selectRandomEntry function here:
 
+// Copy/paste your selectRandomEntry function here:
+function selectRandomEntry(numbersArray) {
+  return numbersArray[Math.floor(Math.random()*numbersArray.length)];
+}
 
 // Code your oxygenExpended function here:
+function oxygenExpended(candidate, orbitRadius, orbitSpeed) {
+  let hours = missionDuration(3, orbitRadius, orbitSpeed);
+  let oxygenUse = Math.round(candidate.o2Used(hours) * 1000) / 1000;
 
+  return `${candidate.name} will perform the spacewalk, which will last ${hours} hours, and require ${oxygenUse} kg of oxygen.`
+}
 
 // Candidate data & crew array.
 let candidateA = {
@@ -59,4 +66,6 @@ let candidateA = {
  };
  
  let crew = [candidateA,candidateC,candidateE];
+
+ console.log(oxygenExpended(selectRandomEntry(crew)))
  
