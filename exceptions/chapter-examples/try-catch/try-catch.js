@@ -7,7 +7,8 @@ try {
     console.log('animal at index:', animals[index].name);
 } catch(TypeError) {
     console.log("We caught a TypeError, but our program continues to run!");
-    console.log("You tried to access an animal at index:", index);
+} finally {
+    console.log("You tried to access and animal at index:", index);
 }
 
 console.log("the code goes on...");
