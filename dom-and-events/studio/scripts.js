@@ -39,6 +39,7 @@ window.addEventListener("load", function () {
   up.addEventListener("click", () => {
     let movement = (rocket.style.top = `${rocket.offsetTop - 10}px`);
     rocket.style.top = movement;
+    shuttleHeight.innerHTML = Number(shuttleHeight.innerHTML) + 10000;
     console.log(rocket.offsetLeft);
   });
   down.addEventListener("click", () => {
